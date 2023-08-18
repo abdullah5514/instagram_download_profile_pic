@@ -8,26 +8,24 @@ module InstagramDownloadProfilePic
     options = Selenium::WebDriver::Firefox::Options.new(args: ['-headless'])
     driver = Selenium::WebDriver.for(:firefox, options: options)
     driver.get(url)
+    image_url = driver.find_element(:css, '.x1lliihq img').attribute('src')
 
-    begin
-      uri = URI.parse(image_url)
-      response = Net::HTTP.get_response(uri)
+
+
+    if image_url
+      uri = URI.parse(src_attribute)
+      image_data = Net::HTTP.get_response(uri).body
+      image_filename = 'profile_picture.jpg' # Change this to your desired filename
     
-      if response.code == '200'
-        File.open(download_path, 'wb') do |file|
-          file.write(response.body)
-        end
-        puts "Image downloaded successfully to: #{download_path}"
-      else
-        puts "Error downloading image: #{response.message}"
+      # Save the image to the local directory
+      File.open(image_filename, 'wb') do |file|
+        file.write(image_data)
       end
-    rescue => e
-      puts "Error downloading image: #{e.message}"
-    ensure
-       # Close the driver when you're done
-      driver.quit if driver
+    
+      puts "Image downloaded as '#{image_filename}'"
+    else
+      puts "Image source attribute not found."
     end
     
-
-
+    driver.quit
 end

@@ -28,4 +28,5 @@ module InstagramDownloadProfilePic
     end
     
     driver.quit
+  end
 end

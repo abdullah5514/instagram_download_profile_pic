@@ -7,4 +7,6 @@ gem "rake", "~> 12.0"
 
 gem 'selenium-webdriver'
 
-gem 'net-http'
+gem 'net-http'  
+
+gem 'fileutils'

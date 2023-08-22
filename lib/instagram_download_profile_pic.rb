@@ -37,7 +37,7 @@ module InstagramDownloadProfilePic
           puts 'Timeout: Profile picture element not found.'
         end
 
-        driver.quit
+        driver&.quit
       end
     end
 

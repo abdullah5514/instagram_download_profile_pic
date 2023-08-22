@@ -10,3 +10,5 @@ gem 'selenium-webdriver'
 gem 'net-http'  
 
 gem 'fileutils'
+
+gem 'rspec'

@@ -22,7 +22,15 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+The Instagram Profile Picture Downloader Gem provides a simple and straightforward way to download profile pictures from Instagram. Here's how you can use it:
+
+    include InstagramDownloadProfilePic
+
+    InstagramDownloadProfilePic::Downloader.download_instagram_profile_pic('user_name_from instgram')
+
+
+
+
 
 ## Development
 

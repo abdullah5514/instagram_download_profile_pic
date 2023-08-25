@@ -9,10 +9,16 @@ module InstagramDownloadProfilePic
   class Downloader
     TMP_FOLDER =  File.join(Dir.pwd, 'tmp', 'profile_pics')
 
-    def self.download_instagram_profile_pic(url)
+    def self.download_instagram_profile_pic(input)
+      url = if valid_instagram_url?(input)
+              input
+            else
+              "https://www.instagram.com/#{input}/"
+            end
+
       case
       when !valid_instagram_url?(url)
-        puts 'Invalid URL format. Please provide a valid Instagram profile URL.'
+        puts 'Invalid URL format. Please provide a valid Instagram profile URL or username.'
       when !firefox_driver_available?
         puts 'Firefox WebDriver is not available on the system.'
       else
@@ -78,3 +84,5 @@ module InstagramDownloadProfilePic
     end
   end
 end
+
+ 

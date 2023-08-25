@@ -28,6 +28,9 @@ The Instagram Profile Picture Downloader Gem provides a simple and straightforwa
 
     InstagramDownloadProfilePic::Downloader.download_instagram_profile_pic('user_name_from instgram')
 
+Please ensure you have a Firefox driver set up before using this gem.[GitHub](https://github.com/mozilla/geckodriver/releases)
+
+
 
 
 
